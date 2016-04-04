@@ -20,6 +20,7 @@ plot(Sub_metering_1, type = "n", ylab = "Energy Sub Metering")
 lines(Sub_metering_1, col = "black")
 lines(Sub_metering_2, col = "red")
 lines(Sub_metering_3, col = "blue")
-legend("top", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       col = c("black", "red", "blue"), text.col = c("black", "red", "blue"), lty = 1)
 dev.copy(png, file = "plot3.png", width = 480, height = 480)
 dev.off()
