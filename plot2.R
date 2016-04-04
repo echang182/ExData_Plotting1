@@ -1,5 +1,5 @@
 # Eloy Chang
-# plot 1
+# plot 2
 
 # Read the file
 dat<- read.csv("household_power_consumption.txt", sep = ";", na.strings = "?")
@@ -11,8 +11,9 @@ dat$Time<- strptime(dat$Time, format = "%H:%M:%S")
 # subset the data
 dat<- dat[((dat$Date=="2007-02-01")|(dat$Date=="2007-02-02")),]
 
-# Generate plot1
-hist(dat$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)",
-     xlim = c(0,6), main = "Global Active Power" )
-dev.copy(png, file = "plot1.png", width = 480, height = 480)
+# Generate plot2
+wd<- as.factor(weekdays(dat$Date[!is.na(dat$Global_active_power)]))  
+gap<- dat$Global_active_power[!is.na(dat$Global_active_power)]
+plot(gap, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
+dev.copy(png, file = "plot2.png", width = 480, height = 480)
 dev.off()
